@@ -2,6 +2,7 @@ import express from "express";
 import { check } from "express-validator";
 import {
   addBlogPost,
+  deletePost,
   getBlogPost,
   getPost,
   updatePost,
@@ -26,9 +27,8 @@ router
       check("content", "content is requred").notEmpty().isLength(10),
     ],
     updatePost
-  )
-  .delete();
+  );
 
-  router.route('/:id').get(getPost)
+router.route("/:id").get(getPost).delete(deletePost);
 
 export default router;

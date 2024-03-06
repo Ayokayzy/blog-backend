@@ -1,8 +1,18 @@
-class Blog {
-  id;
-  constructor(title, content) {
-    this.title = title;
-    this.content = content;
-    this.id = id + 1;
-  }
-}
+import mongoose from "mongoose";
+
+const blogSchema = new mongoose.Schema(
+  {
+    title: {
+      type: String,
+      required: true,
+    },
+    content: {
+      type: String,
+      required: true,
+    },
+  },
+  { timestamps: true }
+);
+
+const Blog = mongoose.model("Blog", blogSchema);
+export default Blog;
